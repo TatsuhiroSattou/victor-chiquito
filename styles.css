@@ -146,27 +146,6 @@ section {
 }
 
 /* =========================================================
-   FOOTER
-   ========================================================= */
-.site-footer {
-  border-top: 1px solid var(--border);
-  padding: 28px 24px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: space-between;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.site-footer a:hover {
-  color: var(--accent);
-}
-
-/* =========================================================
    HERO
    ========================================================= */
 .hero {
@@ -511,5 +490,46 @@ section h2 {
   background-color: #6cf0c8;
   transform: translateY(-1px);
 }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.site-footer a:hover {
+  color: var(--accent);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 720px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-terminal {
+    text-align: left;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 
 
