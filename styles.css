@@ -333,3 +333,183 @@ section h2 {
   border-radius: 4px;
 }
 
+/* =========================================================
+   PROYECTOS / REPORTES
+   ========================================================= */
+.proyectos-intro {
+  color: var(--text-muted);
+  margin-top: -16px;
+  margin-bottom: 32px;
+  max-width: 640px;
+}
+
+.reports-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.report-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent-dim);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  transition: border-left-color 0.15s ease, background-color 0.15s ease;
+}
+
+.report-card:hover {
+  background-color: var(--surface-2);
+}
+
+.report-card.severity-critical {
+  border-left-color: var(--critical);
+}
+
+.report-card.severity-medium {
+  border-left-color: var(--amber);
+}
+
+.report-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.badge {
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge-critical {
+  background-color: rgba(224, 87, 76, 0.15);
+  color: var(--critical);
+}
+
+.badge-medium {
+  background-color: rgba(224, 168, 76, 0.15);
+  color: var(--amber);
+}
+
+.report-org {
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.report-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+}
+
+.report-desc {
+  color: var(--text-muted);
+  margin: 0 0 14px 0;
+}
+
+.report-meta {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.report-link {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.report-link:hover {
+  border-color: var(--accent);
+}
+
+/* =========================================================
+   CONTACTO
+   ========================================================= */
+.contacto-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.contacto-info {
+  flex: 1 1 280px;
+  color: var(--text-muted);
+}
+
+.contacto-info ul {
+  margin-top: 16px;
+}
+
+.contacto-info li {
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.contacto-form {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.contacto-form label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  margin-top: 14px;
+}
+
+.contacto-form label:first-child {
+  margin-top: 0;
+}
+
+.contacto-form input,
+.contacto-form textarea {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  resize: vertical;
+}
+
+.contacto-form input:focus,
+.contacto-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.contacto-form button {
+  margin-top: 20px;
+  align-self: flex-start;
+  background-color: var(--accent);
+  color: #06110d;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 22px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.contacto-form button:hover {
+  background-color: #6cf0c8;
+  transform: translateY(-1px);
+}
+
+
