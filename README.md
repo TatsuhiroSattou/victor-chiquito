@@ -30,6 +30,7 @@ contacto.
 
 ## Captura de pantalla
 <img width="1896" height="859" alt="Captura de pantalla 2026-08-22 210400" src="https://github.com/user-attachments/assets/153747f9-8798-4049-91b9-f1229687243f" />
+<img width="1896" height="968" alt="image" src="https://github.com/user-attachments/assets/6e951b4c-96ea-4bc6-be8e-458c945489d2" />
 
 
 
