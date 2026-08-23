@@ -262,54 +262,74 @@ section h2 {
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
 }
 
-.skill-card {
-  flex: 1 1 300px;
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px 20px;
-  transition: border-color 0.15s ease, transform 0.15s ease;
+.tech-stack-title {
+  margin-top: 40px;
+  margin-bottom: 18px;
+  font-size: 1rem;
+  color: var(--text-primary);
 }
 
-.skill-card:hover {
-  border-color: var(--accent-dim);
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.tech-stack img {
+  height: 30px;
+  border-radius: 4px;
+  display: block;
+  transition: transform 0.15s ease;
+}
+
+.tech-stack img:hover {
   transform: translateY(-2px);
 }
 
-.skill-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 10px;
-  font-size: 0.9rem;
-}
-
-.skill-name {
-  font-weight: 600;
-}
-
-.skill-level {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.skill-bar {
-  width: 100%;
-  height: 6px;
-  background-color: var(--border);
+.tech-badge {
+  display: inline-flex;
+  align-items: stretch;
   border-radius: 4px;
   overflow: hidden;
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
-.skill-bar span {
-  display: block;
-  height: 100%;
-  background-color: var(--accent);
-  border-radius: 4px;
+.tech-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  padding: 7px 9px;
+  color: #f5f5f5;
+}
+
+.tech-icon-dark {
+  color: #12181a;
+}
+
+.tech-label {
+  display: flex;
+  align-items: center;
+  padding: 7px 12px;
+  background-color: #14191b;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.tech-label em {
+  font-style: normal;
+  color: var(--accent);
+  margin-left: 8px;
+  font-size: 0.65rem;
+  opacity: 0.9;
 }
 
 /* =========================================================
@@ -400,12 +420,142 @@ section h2 {
 .report-link {
   font-family: var(--font-mono);
   font-size: 0.85rem;
+  color: var(--accent);
   border-bottom: 1px solid transparent;
   transition: border-color 0.15s ease;
 }
 
+button.report-link {
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
 .report-link:hover {
   border-color: var(--accent);
+}
+
+/* =========================================================
+   MODAL DE WRITE-UP
+   ========================================================= */
+dialog.writeup-dialog {
+  width: min(720px, 92vw);
+  max-height: 85vh;
+  overflow-y: auto;
+  margin: auto;
+  background-color: var(--surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0;
+}
+
+dialog.writeup-dialog::backdrop {
+  background-color: rgba(6, 10, 9, 0.8);
+  backdrop-filter: blur(2px);
+}
+
+.writeup-content {
+  position: relative;
+  padding: 36px 32px 28px;
+}
+
+.writeup-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.writeup-close:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.writeup-head {
+  margin-bottom: 22px;
+  padding-right: 40px;
+}
+
+.writeup-head h3 {
+  font-size: 1.15rem;
+  margin-top: 10px;
+}
+
+.writeup-content section {
+  margin-bottom: 22px;
+}
+
+.writeup-content section:last-child {
+  margin-bottom: 0;
+}
+
+.writeup-content h4 {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.writeup-content p,
+.writeup-content li {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.writeup-content ol {
+  padding-left: 20px;
+}
+
+.writeup-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.writeup-gallery img {
+  width: 160px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  cursor: zoom-in;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.writeup-gallery img:hover {
+  transform: scale(1.03);
+  border-color: var(--accent);
+}
+
+.writeup-gallery img.writeup-gallery-doc {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+  background-color: #fff;
+}
+
+.writeup-video video {
+  width: 100%;
+  max-height: 360px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background-color: #000;
+  display: block;
 }
 
 /* =========================================================
@@ -530,6 +680,3 @@ section h2 {
     align-items: flex-start;
   }
 }
-
-
-
