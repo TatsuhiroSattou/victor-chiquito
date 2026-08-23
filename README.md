@@ -29,7 +29,9 @@ contacto.
 3. No requiere instalación de dependencias adicionales.
 
 ## Captura de pantalla
-_(Agrega aquí una captura de pantalla del portafolio funcionando antes de entregar.)_
+<img width="1896" height="859" alt="Captura de pantalla 2026-08-22 210400" src="https://github.com/user-attachments/assets/153747f9-8798-4049-91b9-f1229687243f" />
+
+
 
 ## Autor
 - GitHub: [@TatsuhiroSattou](https://github.com/TatsuhiroSattou)
