@@ -19,6 +19,20 @@
   --max-width: 1080px;
 }
 
+/* Modo claro — activado con JS (localStorage) agregando esta clase al <body> */
+body.light-mode {
+  --bg: #f4f7f6;
+  --surface: #ffffff;
+  --surface-2: #eef2f1;
+  --border: #d7e0dd;
+
+  --text-primary: #12181a;
+  --text-muted: #4c5c58;
+
+  --accent: #189a72;
+  --accent-dim: #0f6e51;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -145,6 +159,23 @@ section {
   border-color: var(--accent);
 }
 
+.theme-toggle {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  background-color: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 /* =========================================================
    HERO
    ========================================================= */
@@ -216,6 +247,18 @@ section {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.welcome-banner {
+  max-width: var(--max-width);
+  margin: -60px auto 0;
+  padding: 14px 24px;
+  border: 1px solid var(--accent-dim);
+  border-radius: var(--radius);
+  background-color: rgba(76, 224, 179, 0.08);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
 }
 
 /* =========================================================
@@ -640,6 +683,12 @@ dialog.writeup-dialog::backdrop {
   background-color: #6cf0c8;
   transform: translateY(-1px);
 }
+
+.visit-counter {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
 .back-to-top {
   position: fixed;
   right: 20px;
