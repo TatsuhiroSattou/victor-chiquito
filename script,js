@@ -235,3 +235,15 @@ function initBackToTop() {
   });
 }
 
+/* =========================================================
+   8. INICIALIZACIÓN GENERAL
+   ========================================================= */
+
+document.addEventListener('DOMContentLoaded', function () {
+  initWriteupModals();
+  initTheme();
+  mostrarBannerBienvenida();
+  actualizarContadorVisitas();
+  initFormularioContacto();
+  initBackToTop();
+});
