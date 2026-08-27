@@ -684,6 +684,21 @@ dialog.writeup-dialog::backdrop {
   transform: translateY(-1px);
 }
 
+.form-message {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  min-height: 1.1em;
+  margin-top: 14px;
+}
+
+.form-message--error {
+  color: var(--critical);
+}
+
+.form-message--success {
+  color: var(--accent);
+}
+
 .visit-counter {
   font-family: var(--font-mono);
   color: var(--text-muted);
