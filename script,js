@@ -157,6 +157,63 @@ function actualizarContadorVisitas() {
 }
 
 /* =========================================================
+   6. VALIDACIÓN DEL FORMULARIO DE CONTACTO
+   ========================================================= */
+
+function mostrarMensajeFormulario(texto, tipo) {
+  var contenedor = document.getElementById('form-message');
+  if (!contenedor) return;
+
+  contenedor.textContent = texto; // textContent: nunca se interpreta como HTML
+  contenedor.className = 'form-message form-message--' + tipo; // 'success' | 'error'
+}
+
+function manejarEnvioFormulario(event) {
+  event.preventDefault(); // el formulario no envía datos a ningún servidor real
+
+  var inputNombre = document.getElementById('nombre');
+  var inputEmail = document.getElementById('email');
+  var inputMensaje = document.getElementById('mensaje');
+
+  var nombre = limpiarTexto(inputNombre.value, 60);
+  var email = inputEmail.value.trim();
+  var mensaje = limpiarTexto(inputMensaje.value, 500);
+
+  // Estructura de control: validación básica pedida por la actividad.
+  // IMPORTANTE (AppSec): esta validación es solo de UX. En un sitio con
+  // backend real, TODA validación debe repetirse en el servidor — nunca se
+  // debe confiar únicamente en JavaScript del lado del cliente, porque
+  // cualquier persona puede desactivarlo o manipular la petición directamente
+  // (OWASP A04:2021 - Insecure Design / falta de validación server-side).
+  if (nombre === '' || email === '' || mensaje === '') {
+    mostrarMensajeFormulario('Por favor completa nombre, correo y mensaje antes de enviar.', 'error');
+    return;
+  }
+
+  // Validación simple de formato de correo
+  var pareceEmailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if (!pareceEmailValido) {
+    mostrarMensajeFormulario('Ingresa un correo electrónico válido.', 'error');
+    return;
+  }
+
+  // Guardamos el nombre para el banner de bienvenida (localStorage)
+  localStorage.setItem(VISITOR_NAME_KEY, nombre);
+  mostrarBannerBienvenida();
+
+  mostrarMensajeFormulario('¡Gracias, ' + nombre + '! Tu mensaje quedó registrado (demo, sin backend real).', 'success');
+
+  document.getElementById('contacto-form').reset();
+}
+
+function initFormularioContacto() {
+  var formulario = document.getElementById('contacto-form');
+  if (formulario) {
+    formulario.addEventListener('submit', manejarEnvioFormulario); // evento #2: submit
+  }
+}
+
+/* =========================================================
    7. BOTÓN "VOLVER AL INICIO"
    ========================================================= */
 
