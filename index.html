@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Victor Chiquito — Ethical Hacker</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
@@ -468,39 +468,7 @@
     <p>Victor Andre Chiquito Toro © 2026</p>
     <a href="https://github.com/TatsuhiroSattou" target="_blank" rel="noopener">github.com/TatsuhiroSattou</a>
   </footer>
-
-  <script>
-    // Abrir modal de write-up
-    document.querySelectorAll('[data-open]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var dialog = document.getElementById(btn.dataset.open);
-        if (dialog) dialog.showModal();
-      });
-    });
-
-    // Cerrar con el botón "x"
-    document.querySelectorAll('[data-close]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        btn.closest('dialog').close();
-      });
-    });
-
-    // Cerrar haciendo clic fuera del contenido (en el fondo/backdrop)
-    document.querySelectorAll('dialog.writeup-dialog').forEach(function (dialog) {
-      dialog.addEventListener('click', function (event) {
-        var rect = dialog.getBoundingClientRect();
-        var dentro =
-          event.clientX >= rect.left &&
-          event.clientX <= rect.right &&
-          event.clientY >= rect.top &&
-          event.clientY <= rect.bottom;
-        if (!dentro) dialog.close();
-      });
-    });
-  </script>
-
-</body>
-</html>
+  <script src="script.js"></script>
 
 </body>
 </html>
