@@ -34,6 +34,16 @@
           <li><a href="#contacto">cd /contacto</a></li>
         </ul>
       </nav>
+
+      <button
+        type="button"
+        id="theme-toggle"
+        class="theme-toggle"
+        aria-pressed="false"
+        aria-label="Cambiar entre modo oscuro y modo claro"
+      >
+        ☾ Modo claro
+      </button>
     </div>
   </header>
 
@@ -71,6 +81,9 @@
         <img src="img/avatar.jpg" alt="Foto de Victor Andre Chiquito Toro" />
       </div>
     </section>
+
+    <!-- Se completa dinámicamente desde script.js si hay un nombre guardado en localStorage -->
+    <div id="welcome-banner" class="welcome-banner" hidden></div>
 
     <!-- ===== SOBRE MÍ ===== -->
     <section id="sobre-mi" class="sobre-mi">
@@ -466,6 +479,7 @@
 
   <footer class="site-footer">
     <p>Victor Andre Chiquito Toro © 2026</p>
+    <p id="visit-counter" class="visit-counter"></p>
     <a href="https://github.com/TatsuhiroSattou" target="_blank" rel="noopener">github.com/TatsuhiroSattou</a>
   </footer>
 
