@@ -56,3 +56,25 @@ function initWriteupModals() {
   });
 }
 
+/* =========================================================
+   7. BOTÓN "VOLVER AL INICIO"
+   ========================================================= */
+
+function initBackToTop() {
+  var boton = document.getElementById('back-to-top');
+  if (!boton) return;
+
+  window.addEventListener('scroll', function () {
+    // Estructura de control: mostramos el botón solo después de bajar un poco
+    if (window.scrollY > 400) {
+      boton.hidden = false;
+    } else {
+      boton.hidden = true;
+    }
+  });
+
+  boton.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
