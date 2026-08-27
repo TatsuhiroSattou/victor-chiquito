@@ -1,0 +1,58 @@
+'use strict';
+
+/* =========================================================
+   1. UTILIDADES DE SEGURIDAD
+   ========================================================= */
+
+/**
+ * Convierte caracteres peligrosos de HTML a su entidad segura.
+ * Se usa como defensa en profundidad en los pocos lugares donde
+ * construimos un string HTML en vez de usar textContent directo.
+ * Mitiga OWASP A03:2021 - Injection (Cross-Site Scripting).
+ */
+function escapeHTML(texto) {
+  var div = document.createElement('div');
+  div.textContent = texto;
+  return div.innerHTML;
+}
+
+/**
+ * Limpia espacios en blanco y limita la longitud de un input,
+ * para evitar que un visitante guarde cadenas enormes en localStorage.
+ */
+function limpiarTexto(texto, maxLength) {
+  if (typeof texto !== 'string') return '';
+  return texto.trim().slice(0, maxLength || 60);
+}
+
+/* =========================================================
+   2. MODAL DE WRITE-UPS
+   ========================================================= */
+
+function initWriteupModals() {
+  document.querySelectorAll('[data-open]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var dialog = document.getElementById(btn.dataset.open);
+      if (dialog) dialog.showModal();
+    });
+  });
+
+  document.querySelectorAll('[data-close]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      btn.closest('dialog').close();
+    });
+  });
+
+  document.querySelectorAll('dialog.writeup-dialog').forEach(function (dialog) {
+    dialog.addEventListener('click', function (event) {
+      var rect = dialog.getBoundingClientRect();
+      var dentroDelContenido =
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right &&
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom;
+      if (!dentroDelContenido) dialog.close();
+    });
+  });
+}
+
