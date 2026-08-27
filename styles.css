@@ -640,7 +640,6 @@ dialog.writeup-dialog::backdrop {
   background-color: #6cf0c8;
   transform: translateY(-1px);
 }
-
 /* =========================================================
    FOOTER
    ========================================================= */
@@ -680,3 +679,4 @@ dialog.writeup-dialog::backdrop {
     align-items: flex-start;
   }
 }
+
