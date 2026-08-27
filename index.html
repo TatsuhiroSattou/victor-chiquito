@@ -4,7 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Victor Chiquito — Ethical Hacker</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
+
+  <!--
+    AppSec — OWASP A05:2021 (Security Misconfiguration) y A03:2021 (Injection):
+    Content-Security-Policy restringe de dónde puede cargar el sitio scripts, estilos,
+    fuentes e imágenes. script-src 'self' significa que SOLO se ejecuta JavaScript que
+    viene de nuestro propio archivo (script.js): ni scripts inline, ni scripts inyectados
+    por un tercero, ni eval(). Esto reduce fuertemente el impacto de un XSS aunque
+    existiera un fallo de sanitización en algún punto del sitio.
+  -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src https://fonts.gstatic.com;
+    img-src 'self' https://img.shields.io data:;
+    media-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'none';
+  " />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
@@ -455,8 +477,8 @@
           <p>¿Tienes un proyecto, una vulnerabilidad que reportar o quieres contactarme?</p>
           <ul>
             <li>Email: Andreschiquito111@gmail.com</li>
-            <li>GitHub: <a href="https://github.com/TatsuhiroSattou" target="_blank" rel="noopener">github.com/TatsuhiroSattou</a></li>
-            <li>linkedin: <a href="https://www.linkedin.com/in/victor-andre-chiquito-toro-b9358233b/" target="_blank" rel="noopener">linkedin.com/in/victor-andre-chiquito-toro-b9358233b/</a></li>
+            <li>GitHub: <a href="https://github.com/TatsuhiroSattou" target="_blank" rel="noopener noreferrer">github.com/TatsuhiroSattou</a></li>
+            <li>linkedin: <a href="https://www.linkedin.com/in/victor-andre-chiquito-toro-b9358233b/" target="_blank" rel="noopener noreferrer">linkedin.com/in/victor-andre-chiquito-toro-b9358233b/</a></li>
           </ul>
         </div>
 
@@ -482,7 +504,7 @@
   <footer class="site-footer">
     <p>Victor Andre Chiquito Toro © 2026</p>
     <p id="visit-counter" class="visit-counter"></p>
-    <a href="https://github.com/TatsuhiroSattou" target="_blank" rel="noopener">github.com/TatsuhiroSattou</a>
+    <a href="https://github.com/TatsuhiroSattou" target="_blank" rel="noopener noreferrer">github.com/TatsuhiroSattou</a>
   </footer>
 
   <button
