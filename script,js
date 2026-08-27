@@ -57,6 +57,106 @@ function initWriteupModals() {
 }
 
 /* =========================================================
+   3. MODO CLARO / OSCURO
+   ========================================================= */
+
+var THEME_KEY = 'portafolio_theme';
+
+function aplicarTema(tema) {
+  var body = document.body;
+  var boton = document.getElementById('theme-toggle');
+
+  // Estructura de control: condicional según el tema activo
+  if (tema === 'light') {
+    body.classList.add('light-mode');
+    if (boton) {
+      boton.textContent = '☀ Modo oscuro';
+      boton.setAttribute('aria-pressed', 'true');
+    }
+  } else {
+    body.classList.remove('light-mode');
+    if (boton) {
+      boton.textContent = '☾ Modo claro';
+      boton.setAttribute('aria-pressed', 'false');
+    }
+  }
+}
+
+function alternarTema() {
+  var temaActual = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+  var nuevoTema = temaActual === 'light' ? 'dark' : 'light';
+
+  aplicarTema(nuevoTema);
+
+  // Persistencia con localStorage: se recupera y se usa en cada carga (initTheme)
+  localStorage.setItem(THEME_KEY, nuevoTema);
+}
+
+function initTheme() {
+  var temaGuardado = localStorage.getItem(THEME_KEY);
+
+  if (temaGuardado === 'light' || temaGuardado === 'dark') {
+    aplicarTema(temaGuardado);
+  } else {
+    aplicarTema('dark'); // valor por defecto del sitio
+  }
+
+  var boton = document.getElementById('theme-toggle');
+  if (boton) {
+    boton.addEventListener('click', alternarTema); // evento #1: click
+  }
+}
+
+/* =========================================================
+   4. BANNER DE BIENVENIDA (visitante recurrente)
+   ========================================================= */
+
+var VISITOR_NAME_KEY = 'portafolio_visitor_name';
+
+function mostrarBannerBienvenida() {
+  var nombreGuardado = localStorage.getItem(VISITOR_NAME_KEY);
+  var banner = document.getElementById('welcome-banner');
+
+  if (!banner) return;
+
+  // Estructura de control: solo mostramos el banner si hay un nombre guardado
+  if (nombreGuardado) {
+    // Manipulación del DOM #1: usamos textContent (nunca innerHTML) porque
+    // "nombreGuardado" viene de un input del usuario — así se evita un XSS
+    // almacenado vía localStorage (OWASP A03:2021 - Injection).
+    banner.textContent = 'Bienvenido de nuevo, ' + nombreGuardado + ' 👋 gracias por escribirme antes.';
+    banner.hidden = false;
+  } else {
+    banner.hidden = true;
+  }
+}
+
+/* =========================================================
+   5. CONTADOR DE VISITAS SIMULADO
+   ========================================================= */
+
+var VISIT_COUNT_KEY = 'portafolio_visit_count';
+
+function actualizarContadorVisitas() {
+  var contadorActual = parseInt(localStorage.getItem(VISIT_COUNT_KEY), 10);
+
+  // Estructura de control: si no hay valor previo o no es un número válido, arrancamos en 0
+  if (isNaN(contadorActual)) {
+    contadorActual = 0;
+  }
+
+  contadorActual += 1;
+  localStorage.setItem(VISIT_COUNT_KEY, String(contadorActual));
+
+  var elementoContador = document.getElementById('visit-counter');
+  if (elementoContador) {
+    // Manipulación del DOM #2: número generado por nosotros mismos (no es
+    // input de usuario), pero igual usamos textContent por consistencia.
+    elementoContador.textContent = 'Visitas simuladas en este navegador: ' + contadorActual;
+  }
+}
+
+/* =========================================================
    7. BOTÓN "VOLVER AL INICIO"
    ========================================================= */
 
