@@ -213,19 +213,21 @@
 
       <div class="reports-list">
 
-        <article class="report-card severity-critical">
+        <article class="report-card severity-pending">
           <div class="report-head">
-            <span class="badge badge-critical">Crítica (P1)</span>
+            <span class="badge badge-pending">🔒 En proceso</span>
             <span class="report-org">Lenovo</span>
           </div>
           <h3>Write-up — Vulnerabilidad reportada a Lenovo</h3>
           <p class="report-desc">
-            Proximamente
+            Próximamente. Este hallazgo todavía está en proceso de resolución con el
+            fabricante — el write-up se publica solo una vez confirmada la corrección,
+            siguiendo buenas prácticas de responsible disclosure.
           </p>
-          <div class="report-meta">
+          <div class="report-meta report-meta--pending">
             <span>Estado: En proceso — Crítica (P1)</span>
           </div>
-          <button class="report-link" type="button" data-open="writeup-lenovo">Ver write-up completo →</button>
+          <button class="report-link report-link--locked" type="button" data-open="writeup-lenovo">🔒 Aún no disponible</button>
         </article>
 
         <article class="report-card severity-critical">
@@ -279,6 +281,23 @@
           <button class="report-link" type="button" data-open="writeup-harvard">Ver write-up completo →</button>
         </article>
 
+        <article class="report-card severity-medium">
+          <div class="report-head">
+            <span class="badge badge-medium">Alta (P2)</span>
+            <span class="report-org">Harvard — MCZbase</span>
+          </div>
+          <h3>Write-up — XSS reflejado con riesgo de phishing (Harvard MCZbase)</h3>
+          <p class="report-desc">
+            Cross-Site Scripting (XSS) reflejado en MCZbase, la base de datos de colecciones del
+            Museo de Zoología Comparada de Harvard University, con riesgo de phishing dentro de un
+            dominio de confianza. Reportada mediante divulgación responsable y solucionada.
+          </p>
+          <div class="report-meta">
+            <span>Estado: Solucionada — Alta (P2)</span>
+          </div>
+          <button class="report-link" type="button" data-open="writeup-mczbase">Ver write-up completo →</button>
+        </article>
+
       </div>
 
       <!-- ===== MODALES DE WRITE-UP ===== -->
@@ -286,40 +305,23 @@
         <button class="writeup-close" type="button" data-close aria-label="Cerrar">&times;</button>
         <div class="writeup-content">
           <div class="writeup-head">
-            <span class="badge badge-critical">Lenovo</span>
+            <span class="badge badge-pending">🔒 En proceso</span>
             <h3>Write-up — Vulnerabilidad reportada a Lenovo</h3>
           </div>
-          <section>
-            <h4>Resumen</h4>
-            <p>[Escribe aquí qué producto o sistema de Lenovo estaba afectado, qué tipo de
-              vulnerabilidad encontraste y cómo la descubriste.]</p>
-          </section>
-          <section>
-            <h4>Impacto</h4>
-            <p>[Describe qué podía lograr un atacante explotando esta vulnerabilidad:
-              acceso a datos, ejecución remota, escalación de privilegios, etc.]</p>
-          </section>
-          <section>
-            <h4>Pasos de reproducción</h4>
-            <ol>
-              <li>[Paso 1]</li>
-              <li>[Paso 2]</li>
-              <li>[Paso 3]</li>
-            </ol>
-          </section>
-          <section>
-            <h4>Evidencia</h4>
-            <div class="writeup-gallery">
-              <img src="img/writeups/lenovo-1.jpg" alt="Evidencia 1 del hallazgo en Lenovo" />
-              <img src="img/writeups/lenovo-2.jpg" alt="Evidencia 2 del hallazgo en Lenovo" />
-            </div>
-          </section>
-          <section>
-            <h4>Respuesta / Reconocimiento</h4>
-            <p>[Pega aquí la respuesta oficial o el mensaje de reconocimiento que recibiste de Lenovo.]</p>
+          <section class="writeup-locked">
+            <div class="writeup-locked-icon">🔒</div>
+            <p>
+              Este hallazgo todavía está en proceso de resolución con el fabricante.
+              Siguiendo buenas prácticas de <strong>responsible disclosure</strong>, el
+              write-up completo (resumen, impacto, evidencia y respuesta) se publica
+              únicamente una vez que la vulnerabilidad haya sido confirmada como
+              corregida.
+            </p>
+            <p class="writeup-locked-note">Vuelve a revisar más adelante — se actualizará en cuanto se cierre el caso.</p>
           </section>
         </div>
       </dialog>
+
 
       <dialog id="writeup-nasa" class="writeup-dialog">
         <button class="writeup-close" type="button" data-close aria-label="Cerrar">&times;</button>
@@ -467,6 +469,52 @@
           </section>
         </div>
       </dialog>
+
+      <dialog id="writeup-mczbase" class="writeup-dialog">
+        <button class="writeup-close" type="button" data-close aria-label="Cerrar">&times;</button>
+        <div class="writeup-content">
+          <div class="writeup-head">
+            <span class="badge badge-medium">Harvard — MCZbase — Alta (P2)</span>
+            <h3>XSS reflejado con riesgo de phishing en dominio de confianza (MCZbase)</h3>
+          </div>
+          <section>
+            <h4>Resumen</h4>
+            <p>Se identificó una vulnerabilidad de Cross-Site Scripting (XSS) reflejado en
+              MCZbase, la base de datos de colecciones del Museo de Zoología Comparada de
+              Harvard University. Un parámetro de búsqueda no aplicaba una codificación de
+              salida adecuada, permitiendo la ejecución de JavaScript arbitrario dentro del
+              dominio legítimo de Harvard.</p>
+          </section>
+          <section>
+            <h4>Clasificación &amp; Severidad</h4>
+            <p>CVSS 3.1 Base: 8.2 (Alta) — CWE-79 (Cross-Site Scripting).</p>
+          </section>
+          <section>
+            <h4>Impacto</h4>
+            <p>Al ejecutarse dentro de un origen de confianza, el script permitía leer y
+              exfiltrar contenido autenticado de la página, además de inyectar contenido
+              fraudulento — por ejemplo, un formulario de inicio de sesión falso — con el
+              objetivo de capturar credenciales (phishing hospedado en un dominio legítimo).
+              Las cookies de sesión sí contaban con el atributo HttpOnly, lo que impedía el
+              robo directo de la sesión vía JavaScript.</p>
+          </section>
+          <section>
+            <h4>Pasos de reproducción</h4>
+            <p>Omitidos de esta publicación siguiendo buenas prácticas de responsible
+              disclosure. El payload exacto, el endpoint afectado y la prueba de concepto de
+              phishing fueron compartidos de forma privada y exclusiva con el equipo de
+              seguridad de Harvard (HUIT) y con el Museo de Zoología Comparada como parte del
+              proceso de divulgación coordinada.</p>
+          </section>
+          <section>
+            <h4>Respuesta / Estado</h4>
+            <p>Reportada de forma responsable el 26 de junio de 2026. El hallazgo fue
+              confirmado y solucionado por el equipo de seguridad. Todas las pruebas se
+              realizaron únicamente contra sesiones propias de los investigadores — nunca
+              contra usuarios reales del museo.</p>
+          </section>
+        </div>
+      </dialog>
     </section>
 
     <!-- ===== CONTACTO ===== -->
@@ -521,6 +569,7 @@
 
 </body>
 </html>
+
 
 
 </body>
