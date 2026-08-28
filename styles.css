@@ -438,6 +438,29 @@ section h2 {
   color: var(--amber);
 }
 
+.badge-pending {
+  background-color: rgba(142, 163, 156, 0.15);
+  color: var(--text-muted);
+}
+
+.report-card.severity-pending {
+  border-left-color: var(--text-muted);
+  opacity: 0.85;
+}
+
+.report-meta--pending {
+  color: var(--text-muted);
+}
+
+.report-link--locked {
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.report-link--locked:hover {
+  border-color: var(--text-muted);
+}
+
 .report-org {
   color: var(--text-muted);
   text-transform: uppercase;
@@ -599,6 +622,24 @@ dialog.writeup-dialog::backdrop {
   border: 1px solid var(--border);
   background-color: #000;
   display: block;
+}
+
+.writeup-locked {
+  text-align: center;
+  padding: 20px 10px 6px;
+}
+
+.writeup-locked-icon {
+  font-size: 2rem;
+  margin-bottom: 14px;
+  opacity: 0.8;
+}
+
+.writeup-locked-note {
+  margin-top: 10px;
+  font-size: 0.8rem !important;
+  color: var(--text-muted);
+  font-style: italic;
 }
 
 /* =========================================================
@@ -766,3 +807,4 @@ dialog.writeup-dialog::backdrop {
     align-items: flex-start;
   }
 }
+
