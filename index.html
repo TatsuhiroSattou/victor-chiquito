@@ -53,6 +53,7 @@
           <li><a href="#sobre-mi">cd /sobre-mi</a></li>
           <li><a href="#habilidades">cd /habilidades</a></li>
           <li><a href="#proyectos">cd /proyectos</a></li>
+          <li><a href="#investigacion">cd /investigacion</a></li>
           <li><a href="#contacto">cd /contacto</a></li>
         </ul>
       </nav>
@@ -517,9 +518,104 @@
       </dialog>
     </section>
 
+    <!-- ===== INVESTIGACIÓN ===== -->
+    <section id="investigacion" class="investigacion">
+      <h2><span class="tag">04</span> Investigación</h2>
+      <p class="proyectos-intro">
+        Además de reportar hallazgos puntuales, documento la metodología que uso para
+        encontrarlos: un proceso repetible, no un golpe de suerte.
+      </p>
+
+      <div class="reports-list">
+        <article class="report-card">
+          <div class="report-head">
+            <span class="badge badge-medium">Metodología</span>
+            <span class="report-org">Investigación propia</span>
+          </div>
+          <h3>Por qué buscamos, cómo mejoramos y por qué tú también puedes hacerlo</h3>
+          <p class="report-desc">
+            Cómo acoto el alcance de una auditoría, construyo un modelo de amenazas,
+            formulo preguntas específicas en lugar de genéricas y verifico cada hallazgo
+            antes de reportarlo — el ciclo que sigo en cada nueva investigación.
+          </p>
+          <div class="report-meta">
+            <span>Filosofía de trabajo — en evolución continua</span>
+          </div>
+          <button class="report-link" type="button" data-open="investigacion-metodologia">Ver metodología completa →</button>
+        </article>
+      </div>
+
+      <!-- ===== MODAL DE METODOLOGÍA ===== -->
+      <dialog id="investigacion-metodologia" class="writeup-dialog">
+        <button class="writeup-close" type="button" data-close aria-label="Cerrar">&times;</button>
+        <div class="writeup-content">
+          <div class="writeup-head">
+            <span class="badge badge-medium">Metodología de investigación</span>
+            <h3>Por qué buscamos, cómo mejoramos y por qué tú también puedes hacerlo</h3>
+          </div>
+
+          <section>
+            <p><em>"No encontramos vulnerabilidades porque seamos más listos. Encontramos
+              vulnerabilidades porque tenemos un método, porque fallamos rápido, y porque
+              cada error nos enseña algo nuevo."</em></p>
+          </section>
+
+          <section>
+            <h4>¿Por qué existe esta metodología?</h4>
+            <p>La seguridad informática es una carrera constante entre defensores y
+              atacantes. El código moderno es enorme, complejo y está lleno de suposiciones
+              no documentadas — millones de líneas, cientos de contribuidores y
+              funcionalidades que se superponen de formas inesperadas. Esta metodología no
+              es un manual rígido: es una forma de navegar ese caos sin perder la cabeza.</p>
+          </section>
+
+          <section>
+            <h4>El Andamiaje Mínimo</h4>
+            <p>En lugar de intentar auditar todo un proyecto a la vez, el proceso se apoya
+              en cinco pasos:</p>
+            <p><strong>1. Acotar el alcance.</strong> Un endpoint, un componente o un flujo
+              de datos concreto — nunca el proyecto entero de una sola vez.</p>
+            <p><strong>2. Modelo de amenazas.</strong> Qué debería estar protegido, quién
+              podría atacarlo y qué podría salir mal, antes de tocar nada.</p>
+            <p><strong>3. Preguntas específicas.</strong> En vez de "¿es esto seguro?", se
+              formulan preguntas accionables: "¿cómo romperías esto?", "asume que hay un
+              error aquí, ¿cuál es?".</p>
+            <p><strong>4. Verificación.</strong> Ningún hallazgo se da por bueno sin
+              reproducirlo de forma independiente.</p>
+            <p><strong>5. Documentación y difusión.</strong> Cada hallazgo se convierte en
+              un informe claro y una lección aprendida para la próxima investigación.</p>
+          </section>
+
+          <section>
+            <h4>Por qué mejorar constantemente</h4>
+            <p>Cada vulnerabilidad encontrada enseña algo nuevo sobre el propio proceso de
+              búsqueda. El ciclo es simple: encontrar un hallazgo, analizar cómo se
+              encontró, mejorar el método, y repetir. La mejora no viene de ser más
+              inteligente, sino de tener un proceso que permite aprender de los aciertos y
+              de los errores por igual.</p>
+          </section>
+
+          <section>
+            <h4>Por qué cualquiera puede hacerlo</h4>
+            <p>La investigación de seguridad no es un club exclusivo. Hace falta
+              curiosidad, un método sistemático, herramientas (LLMs, curl, razonamiento
+              propio) y comunidad — compartir lo que se encuentra para que otros no
+              empiecen desde cero.</p>
+          </section>
+
+          <section>
+            <h4>Principios</h4>
+            <p>Andamiaje mínimo frente a sobreingeniería. Preguntas específicas frente a
+              preguntas vagas. Verificación frente a especulación. Comunidad frente a
+              individualismo.</p>
+          </section>
+        </div>
+      </dialog>
+    </section>
+
     <!-- ===== CONTACTO ===== -->
     <section id="contacto" class="contacto">
-      <h2><span class="tag">04</span> Contacto</h2>
+      <h2><span class="tag">05</span> Contacto</h2>
       <div class="contacto-wrap">
         <div class="contacto-info">
           <p>¿Tienes un proyecto, una vulnerabilidad que reportar o quieres contactarme?</p>
